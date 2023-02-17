@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "array": "c",
+        "vector": "c",
+        "linkedlist.h": "c",
+        "__tuple": "c",
+        "string": "c",
+        "string_view": "c",
+        "functional": "c",
+        "unordered_map": "c",
+        "stdbool.h": "c",
+        "chrono": "c",
+        "variant": "c",
+        "__locale": "c"
+    }
+}
