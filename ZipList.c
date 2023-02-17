@@ -64,7 +64,8 @@ void printZipList(struct ZipList *list)
 
     qsort(a, n, sizeof *a, cmp); /* qsort array of pointers */
 
-    for (int(*p)[2] = a; p < a + n; p++) /* output results */
+    int(*p)[2] = a;
+    for (a; p < a + n; p++) /* output results */
         printf("%d %d\n", (*p)[1], (*p)[0]);
 }
 
