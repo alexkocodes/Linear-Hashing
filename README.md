@@ -6,7 +6,7 @@ This is a C program that uses linear hashing to monitor votes across different p
 
 ## How To Run 
 1. run **make**
-2. run ./mvote -f *registeredvotersfile* -b *bucketentries* 
+2. run **./mvote -f *registeredvotersfile* -b *bucketentries***
 
-Note: You can customize the command by specifying *registeredvotersfile* and *bucketentries*. *registeredvotersfile* is the file that contains all the personal information of each voter, and *bucketentries* is the maximum number of nodes each bucket can contain.  
+Note: You can customize the command by specifying *registeredvotersfile* and *bucketentries*. *registeredvotersfile* is the path to the csv file that contains all the personal information of each voter, and *bucketentries* is the maximum number of nodes each bucket can contain.  
 
