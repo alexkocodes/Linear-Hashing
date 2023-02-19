@@ -29,9 +29,6 @@ int main(int argc, char *argv[])
         table[i].head = NULL;
     }
 
-    printf("%s\n", filename);
-    printf("%d\n", bucketentries);
-
     FILE *file = fopen(filename, "r");
     if (file == NULL)
     {
@@ -123,7 +120,7 @@ int main(int argc, char *argv[])
                 insert(&table[index], pin, fname, lname, zip, 'N', bucketentries);
                 /*printf("Moved to bucket %d\n", index);*/
             }
-            printf("\n");
+
             p++;
             if (p == old_table_size)
             {
@@ -143,13 +140,6 @@ int main(int argc, char *argv[])
     fclose(file);
 
     int num_people = 0;
-
-    for (i = 0; i < table_size; i++)
-    {
-        printf("Bucket: %d\n", i);
-        num_people += printList(&table[i]);
-    }
-    printf("Total number of people: %d\n", num_people);
 
     char input[100];
     fgets(input, sizeof(input), stdin);
@@ -260,7 +250,7 @@ int main(int argc, char *argv[])
                         }
                         else
                         {
-                            printf("len: %d\n", len);
+
                             freeList(toClean);
                             toClean = createLinkedList();
                             break;
@@ -270,11 +260,13 @@ int main(int argc, char *argv[])
                     table[table_size - 1] = *createLinkedList();
                     for (i = 0; i < len; i++)
                     {
+                        /*
                         printf("Array: %d ", arr[i].data->pin);
                         printf("%s ", arr[i].data->fname);
                         printf("%s ", arr[i].data->lname);
                         printf("%d ", arr[i].data->zip);
-                        printf("%c \n", arr[i].data->status);
+                        printf("%c \n", arr[i].data->status)
+                        */
                         int index = arr[i].data->pin % (mod_num * 2);
                         int pin = arr[i].data->pin;
                         char *fname = (char *)malloc(100 * sizeof(char));
@@ -284,9 +276,7 @@ int main(int argc, char *argv[])
                         int zip = arr[i].data->zip;
 
                         insert(&table[index], pin, fname, lname, zip, 'N', bucketentries);
-                        printf("Moved to bucket %d\n", index);
                     }
-                    printf("\n");
                     p++;
                     if (p == old_table_size)
                     {
@@ -374,6 +364,16 @@ int main(int argc, char *argv[])
         else if (strcmp(token, "o\n") == 0)
         {
             printZipList(ziplist);
+        }
+        else if (strcmp(token, "p\n") == 0)
+        {
+            for (i = 0; i < table_size; i++)
+            {
+                printf("Bucket: %d\n", i);
+                num_people += printList(&table[i]);
+            }
+            printf("Total number of people: %d\n", num_people);
+            num_people = 0;
         }
         else
         {
